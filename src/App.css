@@ -1,4 +1,5 @@
-.App {
+/* App Initial CSS - Initial.js component */
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +36,118 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+.apply-for{
+  font-size: xx-large;
+  display: flex;
+  justify-content: center;
+  padding: 20px 0px;
+}
+
+/* --END-- App Initial CSS - Initial.js component */
+
+/* CSS - Navbar.js component */
+.navbar{
+  background-color: #F1F1F1;
+  display: flex;
+  align-items: baseline;
+}
+
+.navbar > ul {
+  list-style: none;
+  flex: 1;
+  display: flex;
+}
+
+.navbar > ul > li {
+  padding: 10px 20px;
+}
+
+.navbar > ul > li > a {
+  text-decoration: none;
+  color: black;
+} 
+
+.navbar-img{
+  align-self: center;
+}
+
+.navbar-img > img{
+  width: 200px;
+  height: 30px;
+  padding-right: 20px;
+}
+
+/* --END-- CSS - Navbar.js component */
+
+/* CSS - Toolbar.js component */
+.toolbar{
+  background-color: #F1F1F1;
+  padding: 20px 100px;
+  display: flex;
+  align-items:baseline;
+  justify-content: space-between;
+}
+
+.toolbar-button{
+  background-color: white;
+  border-radius: 15px;
+  width: 140px;
+  height: 140px;
+}
+
+.toolbar-button > a {
+  text-align: center;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* --END-- CSS - Toolbar.js component */
+
+/* CSS - Tabs.js component */
+.tabs > ul{
+  display: flex;
+  align-items:flex-start;
+  justify-content: space-between;
+  padding: 20px 250px;
+  list-style: none;
+
+}
+
+.tabs > ul > li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tabs-underline{
+  background-color: #C224FF;
+  margin-top: 10px;
+  width: 140px;
+  height: 5px;
+}
+
+.tabs > ul > li > a {
+  text-decoration: none;
+  font-size: large;
+}
+
+/* --END-- CSS - Tabs.js component */
+
+/* CSS - Buttonbar.js component */
+.buttonbar{
+  padding: 20px 100px;
+  display: flex;
+  align-items:baseline;
+  justify-content: space-between;
+}
+
+.buttonbar-button{
+  background-color: #F1F1F1;
+  border-radius: 20px;
+  width: 200px;
+  height: 200px;
 }
