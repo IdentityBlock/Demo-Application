@@ -19,7 +19,9 @@ function QRbody() {
 
       <div className="code">
         <span>Scan the QR code to proceed</span>
-        <img src={qr} alt="QR CODE"></img>
+        <div className="qr-div">
+          <img src={qr} alt="QR CODE"></img>
+        </div>
       </div>
     </div>
   );

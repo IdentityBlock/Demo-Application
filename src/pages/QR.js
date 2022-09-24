@@ -8,6 +8,7 @@ function QR() {
       <Navbar />
       <div style={{ height: 20 }}></div>
       <Toolbar />
+      <div style={{ height: 20 }}></div>
       <QRbody />
     </>
   );
