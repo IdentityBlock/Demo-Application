@@ -8,35 +8,35 @@ function Buttonbar() {
   return (
     <div className="buttonbar">
       <div className="buttonbar-button">
-        <a href="#">
+        <a href="/qr">
           <img src={savings} alt="Savings" />
           <span>Savings Accounts</span>
         </a>
       </div>
 
       <div className="buttonbar-button">
-        <a href="#">
+        <a href="/qr">
           <img src={deposites} alt="Deposites" />
           <span>Deposites</span>
         </a>
       </div>
 
       <div className="buttonbar-button">
-        <a href="#">
+        <a href="/qr">
           <img src={current} alt="Current Accounts" />
           <span>Current Accounts</span>
         </a>
       </div>
 
       <div className="buttonbar-button">
-        <a href="#">
+        <a href="/qr">
           <img src={cards} alt="Cards" />
           <span>Cards</span>
         </a>
       </div>
 
       <div className="buttonbar-button">
-        <a href="#">
+        <a href="/qr">
           <img src={loans} alt="Loans" />
           <span>Loans</span>
         </a>

@@ -34,7 +34,9 @@ function Navbar() {
       </ul>
 
       <div className="navbar-img">
-        <img src={logo} alt="BANK LOGO"></img>
+        <a href="/">
+          <img src={logo} alt="BANK LOGO"></img>
+        </a>
       </div>
     </div>
   );

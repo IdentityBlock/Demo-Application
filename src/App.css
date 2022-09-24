@@ -34,7 +34,7 @@
   align-self: center;
 }
 
-.navbar-img > img{
+.navbar-img > a > img{
   width: 200px;
   height: 30px;
   padding-right: 20px;
