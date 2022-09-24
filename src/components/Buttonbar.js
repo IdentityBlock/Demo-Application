@@ -10,8 +10,7 @@ function Buttonbar() {
       <div className="buttonbar-button">
         <a href="#">
           <img src={savings} alt="Savings" />
-          <span>Savings</span>
-          <span>Accounts</span>
+          <span>Savings Accounts</span>
         </a>
       </div>
 
