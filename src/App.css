@@ -178,3 +178,35 @@ padding: 30px 0px;
   height: 190px;
   width: 190px;
 }
+
+.form-body{
+  display: flex;
+}
+
+.form{
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+    margin-right: 300px;
+padding: 30px 0px;
+
+  }
+
+.form > input, select{
+  height: 30px;
+  font-size:medium;
+  border: #C224FF solid 0.25px;
+  border-radius: 10px;
+  background-color: #FBFAFA;
+}
+
+.form > label {
+  color: #969595;
+}
+
+.form > .submitBtn{
+  background-color:#0E55DF ;
+  color: #F1F1F1;
+  font-weight: bolder;
+  border: none;
+}
