@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route, BrowserRouter, Link } from "react-router-dom";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 
 import Home from "../pages/Home";
 import QR from "../pages/QR";
@@ -10,7 +10,13 @@ const Router = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="qr" element={<QR />} />
+
+        <Route path="savings/qr" element={<QR acc_type="Savings Account" />} />
+        <Route path="deposites/qr" element={<QR acc_type="Deposites" />} />
+        <Route path="currents/qr" element={<QR acc_type="Current Account" />} />
+        <Route path="cards/qr" element={<QR acc_type="Cards" />} />
+        <Route path="loans/qr" element={<QR acc_type="Loans" />} />
+
         <Route path="verified" element={<Verified />} />
       </Routes>
     </BrowserRouter>
