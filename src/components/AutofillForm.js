@@ -32,6 +32,7 @@ function AutofillForm(props) {
         name="name"
         type="text"
         value={name}
+        readOnly
         onChange={(e) => setName(e.target.value)}
       />
       <br /> <label>Date of Birth:</label>
@@ -39,6 +40,7 @@ function AutofillForm(props) {
         name="dob"
         type="text"
         value={dob}
+        readOnly
         onChange={(e) => setDOB(e.target.value)}
       />
       <br />
@@ -47,6 +49,7 @@ function AutofillForm(props) {
         name="nic"
         type="text"
         value={nic}
+        readOnly
         onChange={(e) => setNIC(e.target.value)}
       />
       <br />
@@ -55,6 +58,7 @@ function AutofillForm(props) {
         name="address"
         type="text"
         value={address}
+        readOnly
         onChange={(e) => setAddress(e.target.value)}
       />
       <br />
@@ -63,6 +67,7 @@ function AutofillForm(props) {
         name="email"
         type="text"
         value={email}
+        readOnly
         onChange={(e) => setEmail(e.target.value)}
       />
       <br />
@@ -71,6 +76,7 @@ function AutofillForm(props) {
         name="phone"
         type="text"
         value={phone}
+        readOnly
         onChange={(e) => setPhone(e.target.value)}
       />
       <br />
