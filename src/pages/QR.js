@@ -16,7 +16,9 @@ function QR(props) {
           option="Personal Banking"
           acc_type={props.acc_type}
         />
-        <QRcode />
+        <a href={props.refe}>
+          <QRcode />
+        </a>
       </div>
     </>
   );

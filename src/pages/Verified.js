@@ -2,13 +2,17 @@ import Navbar from "../components/Navbar";
 import AutofillForm from "../components/AutofillForm";
 import IBlock from "../components/IBlock";
 
-function Verified() {
+function Verified(props) {
   return (
     <>
       <Navbar />
       <div style={{ height: 20 }}></div>
       <div className="form-body">
-        <IBlock iblock="Verified By:" option="Personal Banking" />
+        <IBlock
+          iblock="Verified By:"
+          option="Personal Banking"
+          acc_type={props.acc_type}
+        />
         <AutofillForm
           name="A.B.C. Perera"
           dob="19/09/1992"

@@ -11,13 +11,41 @@ const Router = () => {
       <Routes>
         <Route path="/" element={<Home />} />
 
-        <Route path="savings/qr" element={<QR acc_type="Savings Account" />} />
-        <Route path="deposites/qr" element={<QR acc_type="Deposites" />} />
-        <Route path="currents/qr" element={<QR acc_type="Current Account" />} />
-        <Route path="cards/qr" element={<QR acc_type="Cards" />} />
-        <Route path="loans/qr" element={<QR acc_type="Loans" />} />
+        <Route
+          path="savings/qr"
+          element={<QR acc_type="Savings Account" refe="/savings/verified" />}
+        />
+        <Route
+          path="deposites/qr"
+          element={<QR acc_type="Deposites" refe="/deposites/verified" />}
+        />
+        <Route
+          path="currents/qr"
+          element={<QR acc_type="Current Account" refe="/currents/verified" />}
+        />
+        <Route
+          path="cards/qr"
+          element={<QR acc_type="Cards" refe="/cards/verified" />}
+        />
+        <Route
+          path="loans/qr"
+          element={<QR acc_type="Loans" refe="/loans/verified" />}
+        />
 
-        <Route path="verified" element={<Verified />} />
+        <Route
+          path="savings/verified"
+          element={<Verified acc_type="Savings Account" />}
+        />
+        <Route
+          path="deposites/verified"
+          element={<Verified acc_type="Deposites" />}
+        />
+        <Route
+          path="currents/verified"
+          element={<Verified acc_type="Current Account" />}
+        />
+        <Route path="cards/verified" element={<Verified acc_type="Cards" />} />
+        <Route path="loans/verified" element={<Verified acc_type="Loans" />} />
       </Routes>
     </BrowserRouter>
   );
