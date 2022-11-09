@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import qr from "../img/qr.png";
 
+import io from 'socket.io-client';
 
 function QRcode() {
   const axios = require('axios');
@@ -8,7 +9,7 @@ function QRcode() {
 
   console.log("abc");
 
-  useEffect(() => {  
+  /*useEffect(() => {  
     axios.get('/qr-code').then(async function(data) {
       //console.log(data);
       setQRcode(data.data);
@@ -37,10 +38,20 @@ function QRcode() {
         });
   
         await myPromise;
-      }
+      
+
     });
-  }, [])
-  
+  }, [])*/
+
+  useEffect(() => {
+    //axios.get('/reqst').then((data) =>)
+    //var socket = io();
+    const socket = io("http://localhost:3001/");
+
+    console.log(socket);
+
+    socket.emit("request", "A");
+  }, []);
 
   return (
     <div className="code">
