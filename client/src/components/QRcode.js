@@ -50,7 +50,16 @@ function QRcode() {
 
     console.log(socket);
 
-    socket.emit("request", "A");
+    socket.emit("request", ["ABC", ["Name", "Address"]]);
+
+    socket.on("qr", (qr) => {
+      setQRcode(qr);
+      console.log(qr);
+    });
+
+    socket.on("data", (data) => {
+      console.log(data);
+    });
   }, []);
 
   return (

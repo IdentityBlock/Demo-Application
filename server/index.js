@@ -1,9 +1,11 @@
+const api = require('./library/api.js');
 const express = require('express');
 const app = express();
 
 const http = require('http').Server(app);
 
 const cors = require('cors');
+const { request } = require('http');
 
 const io = require('socket.io') (http, {
     cors : {
@@ -37,8 +39,15 @@ app.get('/', (req, res) => {
 
 io.on("connection", (socket) => {
     console.log("connected-reqst");
-    socket.on("request", (data) => {
-        console.log(data);
+    socket.on("request", (info) => {
+        api.request(info[0], info[1], (err, qr) => {
+            console.log(qr);
+            socket.emit("qr", qr);
+        }).then((data) => {
+            socket.emit("data", data);
+            console.log(data);
+        });
+        console.log(info);
     });
 })
 
