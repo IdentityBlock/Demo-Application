@@ -1,17 +1,17 @@
-const api = require('./library/api.js');
-const express = require('express');
+const api = require("./library/api.js");
+const express = require("express");
 const app = express();
 
-const http = require('http').Server(app);
+const http = require("http").Server(app);
 
-const cors = require('cors');
-const { request } = require('http');
+const cors = require("cors");
+const { request } = require("http");
 
-const io = require('socket.io') (http, {
-    cors : {
-        origin : '*',
-        methods : ['GET', 'POST'],
-    }
+const io = require("socket.io")(http, {
+  cors: {
+    origin: "*",
+    methods: ["GET", "POST"],
+  },
 });
 
 //const io = require('socket.io') (http);
@@ -27,36 +27,46 @@ reqst.on("request", (data) => {
     console.log(data);
 });*/
 
-app.get('/reqst', (req, res) => {
-    console.log("reqst");
-    res.send("reqst");
+app.get("/reqst", (req, res) => {
+  console.log("reqst");
+  res.send("reqst");
 });
 
-app.get('/', (req, res) => {
-    console.log("Home");
-    res.send("Home");
+app.get("/", (req, res) => {
+  console.log("Home");
+  res.send("Home");
 });
 
 io.on("connection", (socket) => {
-    console.log("connected-reqst");
-    socket.on("request", (info) => {
-        api.request(info[0], info[1], (err, qr) => {
-            console.log(qr);
-            socket.emit("qr", qr);
-        }).then((data) => {
-            socket.emit("data", data);
-            console.log(data);
-        });
-        console.log(info);
-    });
-})
+  console.log("connected-reqst");
+  socket.on("request", (info) => {
+    api
+      .request(info[0], info[1], (err, qr) => {
+        console.log(qr);
+        socket.emit("qr", qr);
+      })
+      .then((data) => {
+        socket.emit("data", data);
+        console.log(data);
+      });
+    console.log(info);
+  });
+});
 
 /*io.on("request", (socket) => {
     console.log("connected-reqst");
 })*/
 
-http.listen(3001, 'localhost', () => {
-    console.log(3001);
+// getting the Verifier contract loaded to the server using the api
+contract = api.loadContract();
+
+contract.then((c) => {
+  const contractAddress = c["contract-address"];
+  console.log(contractAddress);
+});
+
+http.listen(3001, "localhost", () => {
+  console.log(3001);
 });
 
 //const axios = require("axios");
