@@ -1,2 +1,4 @@
 node_modules
 library/node_modules
+deployed-contract
+.env
