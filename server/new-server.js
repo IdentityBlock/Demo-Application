@@ -17,8 +17,8 @@ app.get("/", (req, res) => {
 
 app.get("/iblock-qr-generate", async (req, res) => {
   // get the QR code using the API and send to frontend
-  const qr = await api.getQR("ABC Bank");
-  res.json(qr);
+  const qrObj = await api.getQR("ABC Bank");
+  res.json(qrObj);
 
   //   res.send("QR code using iBlock API is being generated");
 });
@@ -45,13 +45,7 @@ app.get("/iblock-qr-verify", async (req, res) => {
     "status",
   ]);
 
-  if (verified === "REJECTED") {
-    res.send("user rejected the token " + token);
-  } else if (verified === "PENDING") {
-    res.send("still pending the token " + token);
-  } else {
-    res.json(verified);
-  }
+  res.json(verified);
 });
 
 // open the server to the frontend
