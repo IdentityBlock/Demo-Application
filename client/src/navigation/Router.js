@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 
 import Home from "../pages/Home";
@@ -6,6 +6,8 @@ import QR from "../pages/QR";
 import Verified from "../pages/Verified";
 
 const Router = () => {
+  const [userData, setUserData] = useState({});
+
   return (
     <BrowserRouter>
       <Routes>
@@ -13,39 +15,29 @@ const Router = () => {
 
         <Route
           path="savings/qr"
-          element={<QR acc_type="Savings Account" refe="/savings/verified" />}
+          element={<QR acc_type="Savings Account" setUserData={setUserData} />}
         />
         <Route
           path="deposites/qr"
-          element={<QR acc_type="Deposites" refe="/deposites/verified" />}
+          element={<QR acc_type="Deposites" setUserData={setUserData} />}
         />
         <Route
           path="currents/qr"
-          element={<QR acc_type="Current Account" refe="/currents/verified" />}
+          element={<QR acc_type="Current Account" setUserData={setUserData} />}
         />
         <Route
           path="cards/qr"
-          element={<QR acc_type="Cards" refe="/cards/verified" />}
+          element={<QR acc_type="Cards" setUserData={setUserData} />}
         />
         <Route
           path="loans/qr"
-          element={<QR acc_type="Loans" refe="/loans/verified" />}
+          element={<QR acc_type="Loans" setUserData={setUserData} />}
         />
 
         <Route
-          path="savings/verified"
-          element={<Verified acc_type="Savings Account" />}
+          path="/verified"
+          element={<Verified acc_type="Savings Account" userData={userData} />}
         />
-        <Route
-          path="deposites/verified"
-          element={<Verified acc_type="Deposites" />}
-        />
-        <Route
-          path="currents/verified"
-          element={<Verified acc_type="Current Account" />}
-        />
-        <Route path="cards/verified" element={<Verified acc_type="Cards" />} />
-        <Route path="loans/verified" element={<Verified acc_type="Loans" />} />
       </Routes>
     </BrowserRouter>
   );

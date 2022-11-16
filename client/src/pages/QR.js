@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import IBlock from "../components/IBlock";
 import Navbar from "../components/Navbar";
 import QRcode from "../components/QRcode";
@@ -7,6 +8,7 @@ import qr from "../img/qr.png";
 
 function QR(props) {
   const [qrcode, setQRcode] = useState(qr);
+  const navigate = useNavigate();
 
   useEffect(() => {
     (async () => {
@@ -14,7 +16,7 @@ function QR(props) {
       const data = await response.json();
       console.log(data);
       setQRcode(data.qr);
-
+      let timeOut = 0;
       // check with backend whether token is received or not
       let listner = setInterval(async () => {
         // console.log(data.token);
@@ -25,10 +27,11 @@ function QR(props) {
         );
         const dataQRVerified = await responseQRVerified.json();
         if (dataQRVerified.status === "APPROVED") {
-          console.log(dataQRVerified.data);
+          // console.log(dataQRVerified.data);
           clearInterval(listner);
-
+          props.setUserData(dataQRVerified.data);
           // stop timeInterval, and pass the data into next page (form)
+          navigate("/verified");
         } else if (dataQRVerified.status === "REJECTED") {
           console.log(dataQRVerified.status);
           clearInterval(listner);
@@ -36,9 +39,17 @@ function QR(props) {
           // stop timeInterval, and navigate to rejected page
         } else {
           console.log(dataQRVerified);
+          timeOut += 5;
+          // 2 mins for the token to expire
+          if (timeOut >= 120) {
+            console.log("TOKEN EXPIRED");
+            clearInterval(listner);
+
+            // stop timeInterval, and navigate to rejected page
+          }
           // keep listening
         }
-      }, 5000);
+      }, 2000);
     })();
   }, []);
 
@@ -54,9 +65,7 @@ function QR(props) {
           option="Personal Banking"
           acc_type={props.acc_type}
         />
-        <a href={props.refe}>
-          <QRcode url={qrcode} />
-        </a>
+        <QRcode url={qrcode} />
       </div>
     </>
   );

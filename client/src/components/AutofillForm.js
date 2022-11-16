@@ -1,12 +1,12 @@
 import { useState } from "react";
 
-function AutofillForm(props) {
-  const [name, setName] = useState(props.name);
-  const [dob, setDOB] = useState(props.dob);
-  const [nic, setNIC] = useState(props.nic);
-  const [address, setAddress] = useState(props.address);
-  const [email, setEmail] = useState(props.email);
-  const [phone, setPhone] = useState(props.phone);
+function AutofillForm({ userData }) {
+  const [name, setName] = useState(userData.name);
+  const [dob, setDOB] = useState(userData.dob);
+  const [nic, setNIC] = useState(userData.nic);
+  const [address, setAddress] = useState(userData.address);
+  const [email, setEmail] = useState(userData.email);
+  const [phone, setPhone] = useState(userData.mobile);
   const [product, setProduct] = useState("");
 
   const handleSubmit = (e) => {
