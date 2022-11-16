@@ -39,9 +39,9 @@ function QR(props) {
           // stop timeInterval, and navigate to rejected page
         } else {
           // console.log(dataQRVerified);
-          timeOut += 5;
+          timeOut += 1;
           // 2 mins for the token to expire
-          if (timeOut >= 120) {
+          if (timeOut >= 60) {
             // console.log("TOKEN EXPIRED");
             clearInterval(listner);
             navigate("/rejected");
