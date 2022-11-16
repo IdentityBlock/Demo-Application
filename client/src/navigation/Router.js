@@ -4,6 +4,7 @@ import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Home from "../pages/Home";
 import QR from "../pages/QR";
 import Verified from "../pages/Verified";
+import Rejected from "../pages/Reject";
 
 const Router = () => {
   const [userData, setUserData] = useState({});
@@ -37,6 +38,11 @@ const Router = () => {
         <Route
           path="/verified"
           element={<Verified acc_type="Savings Account" userData={userData} />}
+        />
+
+        <Route
+          path="/rejected"
+          element={<Rejected acc_type="Savings Account" />}
         />
       </Routes>
     </BrowserRouter>
