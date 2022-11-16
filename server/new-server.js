@@ -1,4 +1,4 @@
-const api = require("./library/api.js"); //API of the iBlock integration library
+const api = require("iblock-verifier"); //API of the iBlock integration library
 const express = require("express");
 const app = express();
 const cors = require("cors");
@@ -27,14 +27,6 @@ app.get("/iblock-qr-verify", async (req, res) => {
   const token = req.query.token;
   //   console.log(token);
   // get the token verified using the API and send
-
-  //   const possibilites = [
-  //     "REJECTED",
-  //     "PENDING",
-  //     "{name:Akila, email:akila@iblock.com,...}",
-  //   ];
-  //   const verified =
-  //     possibilites[Math.floor(Math.random() * possibilites.length)];
 
   const verified = await api.getTokenVerified(token, [
     "name",
