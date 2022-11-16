@@ -40,9 +40,9 @@ app.get("/iblock-qr-verify", async (req, res) => {
     "name",
     "Email",
     "DOB",
-    "Country",
+    "NIC",
     "mobile",
-    "status",
+    "address",
   ]);
 
   res.json(verified);

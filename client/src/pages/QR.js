@@ -14,7 +14,7 @@ function QR(props) {
     (async () => {
       const response = await fetch("http://localhost:3001/iblock-qr-generate");
       const data = await response.json();
-      console.log(data);
+      // console.log(data);
       setQRcode(data.qr);
       let timeOut = 0;
       // check with backend whether token is received or not
@@ -33,18 +33,18 @@ function QR(props) {
           // stop timeInterval, and pass the data into next page (form)
           navigate("/verified");
         } else if (dataQRVerified.status === "REJECTED") {
-          console.log(dataQRVerified.status);
+          // console.log(dataQRVerified.status);
           clearInterval(listner);
-
+          navigate("/rejected");
           // stop timeInterval, and navigate to rejected page
         } else {
-          console.log(dataQRVerified);
+          // console.log(dataQRVerified);
           timeOut += 5;
           // 2 mins for the token to expire
           if (timeOut >= 120) {
-            console.log("TOKEN EXPIRED");
+            // console.log("TOKEN EXPIRED");
             clearInterval(listner);
-
+            navigate("/rejected");
             // stop timeInterval, and navigate to rejected page
           }
           // keep listening
