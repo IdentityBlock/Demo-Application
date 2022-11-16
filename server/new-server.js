@@ -16,9 +16,9 @@ app.get("/", (req, res) => {
 });
 
 app.get("/iblock-qr-generate", async (req, res) => {
-  // get the QR code using the API and send
+  // get the QR code using the API and send to frontend
   const qr = await api.getQR("ABC Bank");
-  res.send(qr);
+  res.json(qr);
 
   //   res.send("QR code using iBlock API is being generated");
 });
