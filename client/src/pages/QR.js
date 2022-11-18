@@ -12,7 +12,7 @@ function QR(props) {
 
   useEffect(() => {
     (async () => {
-      const response = await fetch("http://localhost:3001/iblock-qr-generate");
+      const response = await fetch("/iblock-qr-generate");
       const data = await response.json();
       // console.log(data);
       setQRcode(data.qr);
@@ -21,7 +21,7 @@ function QR(props) {
       let listner = setInterval(async () => {
         // console.log(data.token);
         const responseQRVerified = await fetch(
-          `http://localhost:3001/iblock-qr-verify?token=${encodeURIComponent(
+          `/iblock-qr-verify?token=${encodeURIComponent(
             data.token
           )}`
         );
