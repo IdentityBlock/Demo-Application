@@ -4,6 +4,8 @@ const app = express();
 const cors = require("cors");
 app.use(cors());
 
+const path = require('path');
+
 // getting the Verifier contract loaded to the server using the api
 api.loadContract().then((response) => {
   console.log("smart contract is loaded");
@@ -40,7 +42,17 @@ app.get("/iblock-qr-verify", async (req, res) => {
   res.json(verified);
 });
 
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '../client/build')));
+}
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/build/index.html'));
+});
+
+var PORT = process.env.PORT || 3001;
+
 // open the server to the frontend
-app.listen(3001, "localhost", () => {
-  console.log(3001);
+app.listen(PORT, () => {
+  console.log(PORT);
 });
