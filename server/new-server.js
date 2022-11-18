@@ -13,10 +13,6 @@ api.loadContract().then((response) => {
 });
 // console.log(contract["contract-address"]);
 
-app.get("/", (req, res) => {
-  res.send("ABC bank server root.");
-});
-
 app.get("/iblock-qr-generate", async (req, res) => {
   // get the QR code using the API and send to frontend
   const qrObj = await api.getQR("ABC Bank");
