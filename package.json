@@ -1,5 +1,5 @@
 {
-  "name": "airline-reservation",
+  "name": "demo-application",
   "version": "1.0.0",
   "description": "",
   "main": "server/new-server.js",
@@ -9,7 +9,7 @@
   "scripts": {
     "install": "cd server && npm i --legacy-peer-deps && cd ../client && npm i --legacy-peer-deps",
     "start": "node server/new-server.js",
-    "start:dev": "concurrently \"cd client && npm start\" \"cd server && nodemon new-server.js\"",
+    "start:dev": "concurrently \"cd client && npm start\" \"cd server && node new-server.js\"",
     "heroku-postbuild": "cd client && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   }
